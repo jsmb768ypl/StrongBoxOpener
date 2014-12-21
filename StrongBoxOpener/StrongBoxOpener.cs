@@ -1,4 +1,8 @@
-namespace PluginTidyBags3
+/*
+* 99.9% of the code taken from Tidy Bags v3.6.4.4 by LiquidAtoR
+*/
+
+namespace StrongBoxOpener
 {
 using Styx;
 using Styx.Common;
@@ -31,9 +35,9 @@ using System.Windows.Media;
 using System.Xml.Linq;
 public class TidyBags3 : HBPlugin
 {
-public override string Name { get { return "Tidy Bags 3.6 Reloaded"; } }
-public override string Author { get { return "LiquidAtoR"; } }
-public override Version Version { get { return new Version(3,6,4,4); } }
+public override string Name { get { return "StrongBoxOpener"; } }
+public override string Author { get { return "jsmb768ypl"; } }
+public override Version Version { get { return new Version(0.0.0.1); } }
 public bool InventoryCheck = false;
 private bool _init;
 private void LootFinished(object sender, LuaEventArgs args)
@@ -208,150 +212,11 @@ private HashSet<uint> _itemUseOnOne = new HashSet<uint>() {
 139785 // Kypari sap Container (Archaeology)
 };
 private HashSet<uint> _itemUseOnThree = new HashSet<uint>() {
-10938, // Lesser Magic Essence
-10998, // Lesser Astral Essence
-11134, // Lesser Mystic Essence
-11174, // Lesser Nether Essence
-16202, // Lesser Eternal Essence
-22447, // Lesser Planar Essence
-34053, // Small Dream Shard
-34056, // Lesser Cosmic Essence
-52718, // Lesser Celestial Essence
-74252, // Small Ethereal Shard
-52720 // Small Heavenly Shard
-};
+
 private HashSet<uint> _itemUseOnFive = new HashSet<uint>() {
-// 111671, // Enormous Abyssal Gulper Eel
-// 111601, // Enormous Crescent Saberfish
-// 111675, // Enormous Fat Sleeper
-// 111674, // Enormous Blind Lake Sturgeon
-// 111673, // Enormous Fire Ammonite
-// 111672, // Enormous Sea Scorpion
-// 111676, // Enormous Jawless Skulker
-// 111670, // Enormous Blackwater Whiptail
-// 118566, // Enormous Savage Piranha
-33567 // Borean Leather Scraps
-};
+
 private HashSet<uint> _itemUseOnTen = new HashSet<uint>() {
-22572, // Mote of Air
-22573, // Mote of Earth
-22574, // Mote of Fire
-22575, // Mote of Life
-22576, // Mote of Mana
-22577, // Mote of Shadow
-22578, // Mote of Water
-37700, // Crystallized Air
-37701, // Crystallized Earth
-37702, // Crystallized Fire
-37703, // Crystallized Shadow
-37704, // Crystallized Life
-37705, // Crystallized Water
-49655, // Lovely Charm (Love is in the Air item)
-86547, // Skyshard
-89112, // Mote of Harmony
-90407, // Sparkling Shard (from Prospecting ores)
-97512, // Ghost Iron Nugget
-97546, // Kyparite Fragment
-97619, // Torn Green Tea Leaf
-97620, // Rain Poppy Petal
-97621, // Silkweed Stem
-97622, // Snow Lily Petal
-97623, // Fool's Cap Spores
-97624, // Desecrated Herb Pod
-108294, // Silver Ore Nugget
-108295, // Tin Ore Nugget
-108296, // Gold Ore Nugget
-108297, // Iron Ore Nugget
-108298, // Thorium Ore Nugget
-108299, // Truesilver Ore Nugget
-108300, // Mithril Ore Nugget
-108301, // Fel Iron Ore Nugget
-108302, // Adamantite Ore Nugget
-108304, // Khorium Ore Nugget
-108305, // Cobalt Ore Nugget
-108306, // Saronite Ore Nugget
-108307, // Obsidium Ore Nugget
-108308, // Elementium Ore Nugget
-108318, // Mageroyal Petal
-108319, // Earthroot Stem
-108320, // Briarthorn Bramble
-108321, // Swiftthistle Leaf
-108322, // Bruiseweed Stem
-108323, // Wild Steelbloom Petal
-108324, // Kingsblood Petal
-108325, // Liferoot Stem
-108326, // Khadgar's Whisker Stem
-108327, // Grave Moss Leaf
-108328, // Fadeleaf Petal
-108329, // Dragon's Teeth Stem
-108330, // Stranglekelp Blade
-108331, // Goldthorn Bramble
-108332, // Firebloom Petal
-108333, // Purple Lotus Petal
-108334, // Arthas' Tears Petal
-108335, // Sungrass Stalk
-108336, // Blindweed Stem
-108337, // Ghost Mushroom Cap
-108338, // Gromsblood Leaf
-108339, // Dreamfoil Blade
-108340, // Golden Sansam Leaf
-108341, // Mountain Silversage Stalk
-108342, // Sorrowmoss Leaf
-108343, // Icecap Petal
-108344, // Felweed Stalk
-108345, // Dreaming Glory Petal
-108346, // Ragveil Cap
-108347, // Terocone Leaf
-108348, // Ancient Lichen Petal
-108349, // Netherbloom Leaf
-108350, // Nightmare Vine Stem
-108351, // Mana Thistle Leaf
-108352, // Goldclover Leaf
-108353, // Adder's Tongue Stem
-108354, // Tiger Lily Petal
-108355, // Lichbloom Stalk
-108356, // Icethorn Bramble
-108357, // Talandra's Rose Petal
-108358, // Deadnettle Bramble
-108359, // Fire Leaf Bramble
-108360, // Cinderbloom Petal
-108361, // Stormvine Stalk
-108362, // Azshara's Veil Stem
-108363, // Heartblossom Petal
-108364, // Twilight Jasmine Petal
-108365, // Whiptail Stem
-108391, // Titanium Ore Nugget
-109624, // Broken Frostweed Stem
-109625, // Broken Fireweed Stem
-109626, // Gorgrond Flytrap Ichor
-109627, // Starflower Petal
-109628, // Nagrand Arrowbloom Petal
-109629, // Talador Orchid Petal
-109991, // True Iron Nugget
-109992, // Blackrock Fragment
-// 111664, // Abyssal Gulper Eel
-// 111595, // Crescent Saberfish
-// 111668, // Fat Sleeper
-// 111667, // Blind Lake Sturgeon
-// 111666, // Fire Ammonite
-// 111665, // Sea Scorpion
-// 111669, // Jawless Skulker
-// 111663, // Blackwater Whiptail
-// 118565, // Savage Piranha
-112693, // Frostweed Seed
-112694 // Fireweed Seed
-};
-private HashSet<uint> _itemUseOnTwenty = new HashSet<uint>() {
-111659, // Small Abyssal Gulper Eel
-111589, // Small Crescent Saberfish
-111651, // Small Fat Sleeper
-111652, // Small Blind Lake Sturgeon
-111656, // Small Fire Ammonite
-111658, // Small Sea Scorpion
-111650, // Small Jawless Skulker
-111662, // Small Blackwater Whiptail
-118564 // Small Savage Piranha
-};
+
 private HashSet<uint> _itemRequiresSleep = new HashSet<uint>() {
 61387, // Hidden Stash
 67495, // Strange Bloated Stomach (Cataclysm Skinning)
@@ -392,36 +257,9 @@ private HashSet<uint> _itemRequiresSleep = new HashSet<uint>() {
 98560, // Arcane Trove (Vendor Version Alliance)
 98562 // Sunreaver Bounty (Vendor Version Horde)
 };
+
 private HashSet<uint> _destroyItems = new HashSet<uint>() {
-19221, // Darkmoon Special Reserve
-19222, // Cheap Beer
-19223, // Darkmoon Dog
-19224, // Red Hot Wings
-19225, // Deep Fried Candybar
-19299, // Fizzy Faire Drink
-19300, // Bottled Winterspring Water
-19304, // Spiced Beef Jerky
-19305, // Pickled Kodo Foot
-19306, // Crunchy Frog
-21151, // Rumsey Rum Black Label
-44940, // Corn-Breaded Sausage
-44941, // Fresh-Squeezed Limeade
-45188, // Whitered Kelp
-45189, // Torn Sail
-45190, // Driftwood
-45191, // Empty Clam
-45194, // Tangled Fishing Line
-45195, // Empty Rum Bottle
-45196, // Tattered Cloth
-45197, // Tree Branch
-45198, // Weeds
-45199, // Old Boot
-45200, // Sickly Fish
-45201, // Rock
-45202, // Water Snail
-73260, // Salty Sea Dog
-74822 // Sasparilla Sinker
-};
+
 public override void Pulse()
 {
 if (!_init) {
@@ -429,7 +267,7 @@ base.OnEnable();
 Lua.DoString("SetCVar('AutoLootDefault','1')");
 Lua.Events.AttachEvent("LOOT_CLOSED", LootFinished);
 Lua.Events.AttachEvent("MAIL_CLOSED", MailboxFinished);
-Logging.Write(LogLevel.Normal, Colors.DarkRed, "TidyBags 3.6 ready for use...");
+Logging.Write(LogLevel.Normal, Colors.DarkRed, "StrongBoxOpener ready for use...");
 _init = true;
 }
 if (_init)
@@ -447,25 +285,8 @@ if (_itemUseOnOne.Contains(item.Entry)) { // stacks of 1
 if (item.StackCount >= 1) {
 this.useItem(item);
 }
-} else if (_itemUseOnThree.Contains(item.Entry)) { // stacks of 3
-if (item.StackCount >= 3) {
-this.useItem(item);
-}
-} else if (_itemUseOnFive.Contains(item.Entry)) { // stacks of 5
-if (item.StackCount >= 5) {
-this.useItem(item);
-}
-} else if (_itemUseOnTen.Contains(item.Entry)) { // stacks of 10
-if (item.StackCount >= 10) {
-this.useItem(item);
-}
-// } else if (_itemUseOnTwenty.Contains(item.Entry)) { // stacks of 20
-// if (item.StackCount >= 20) {
-// this.useItem(item);
-// }
-} else if (_destroyItems.Contains(item.Entry)) {
-this.destroyItem(item);
-}
+} 
+ 
 }
 }
 InventoryCheck = false;
@@ -480,13 +301,6 @@ if (_itemRequiresSleep.Contains(item.Entry)) {
 StyxWoW.SleepForLagDuration();
 }
 Lua.DoString("UseItemByName(\"" + item.Name + "\")");
-StyxWoW.SleepForLagDuration();
-}
-private void destroyItem(WoWItem item)
-{
-Logging.Write(LogLevel.Normal, Colors.DarkRed, "[{0} {1}]: Destroying {2} we have {3}", this.Name, this.Version, item.Name, item.StackCount);
-item.PickUp();
-Lua.DoString("DeleteCursorItem()");
 StyxWoW.SleepForLagDuration();
 }
 }

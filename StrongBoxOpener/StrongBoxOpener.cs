@@ -54,6 +54,14 @@ if (InventoryCheck == false)
 InventoryCheck = true;
 }
 }
+ private HashSet<uint> _itemUseOnOne = new HashSet<uint>() {
+111598, // Golden Strong Box (Horde)
+120354, // Gold Strong Box (Alliance)
+111599, // Silver Strong Box (Horde)
+120355, // Silver Strong Box (Alliance)
+111600, // Bronze Strong Box (Horde)
+120356 // Bronze Strong Box (Alliance)
+};
 private HashSet<uint> _itemRequiresSleep = new HashSet<uint>() {
 111598, // Golden Strong Box (Horde)
 120354, // Gold Strong Box (Alliance)

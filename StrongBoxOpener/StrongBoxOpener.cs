@@ -37,7 +37,7 @@ public class TidyBags3 : HBPlugin
 {
 public override string Name { get { return "StrongBoxOpener"; } }
 public override string Author { get { return "jsmb768ypl"; } }
-public override Version Version { get { return new Version(0.0.0.1); } }
+public override Version Version { get { return new Version(0,0,0,6); } }
 public bool InventoryCheck = false;
 private bool _init;
 private void LootFinished(object sender, LuaEventArgs args)
@@ -82,13 +82,10 @@ Logging.Write(LogLevel.Normal, Colors.DarkRed, "StrongBoxOpener ready for use...
 _init = true;
 }
 if (_init)
-if (StyxWoW.Me.IsActuallyInCombat
-|| StyxWoW.Me.IsDead
-|| StyxWoW.Me.IsGhost
-) {
+if (StyxWoW.Me.IsActuallyInCombat || StyxWoW.Me.IsDead || StyxWoW.Me.IsGhost) {
 return;
 }
-if (InventoryCheck) { // Loot Event has Finished
+if () { 
 foreach (WoWItem item in ObjectManager.GetObjectsOfType<WoWItem>()) { // iterate over every item
 if (item != null && item.BagSlot != -1 && StyxWoW.Me.FreeNormalBagSlots >= 2) { // check if item exists and is in bag and we have space
 if (_itemUseOnOne.Contains(item.Entry)) { // stacks of 1

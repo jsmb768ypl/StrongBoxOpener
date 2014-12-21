@@ -60,7 +60,7 @@ private HashSet<uint> _itemRequiresSleep = new HashSet<uint>() {
 111599, // Silver Strong Box (Horde)
 120355, // Silver Strong Box (Alliance)
 111600, // Bronze Strong Box (Horde)
-120356, // Bronze Strong Box (Alliance)
+120356 // Bronze Strong Box (Alliance)
 };
 
 public override void Pulse()
